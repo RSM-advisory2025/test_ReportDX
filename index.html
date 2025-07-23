@@ -17,6 +17,27 @@
   </style>
 </head>
 <body class="p-4">
+
+<script>
+  const correctPassword = "RSMshiopa2025";
+
+  function checkPassword() {
+    if(sessionStorage.getItem("authenticated") === "true") {
+      // 既に認証済みなので何もしない
+      return;
+    }
+    const password = prompt("パスワードを入力してください");
+    if(password === correctPassword){
+      sessionStorage.setItem("authenticated", "true");
+    } else {
+      alert("パスワードが違います");
+      window.location.href = "about:blank";
+    }
+  }
+
+  checkPassword();
+</script>
+  
   <header class="bg-white p-6 md:p-8 rounded-lg shadow-md max-w-4xl mx-auto mb-6">
     <h1 class="text-3xl md:text-4xl font-bold text-green-700 mb-4">管理会計・経営レポートDX支援サービス</h1>
     <p class="text-lg mb-6">経営判断に“使える”データを、もっと速く、もっと見やすくしませんか？</p>
